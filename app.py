@@ -11,7 +11,7 @@ def index():
 @app.route("/main",methods=["GET","POST"])
 def main():
   global r,first_time
-  if first_time =1:
+  if first_time == 1:
     r = request.form.get("r")
     first_time = 0
   return(render_template("main.html",r=r))
