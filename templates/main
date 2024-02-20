@@ -1,0 +1,4 @@
+<h1>hi，{{r}},how can i help you</h1>
+ <form action = "/imageGPT" method ="post">
+   <input type ="submit" value ="imageGenerator" style="width: 100px;height: 50px;">
+ </form>
