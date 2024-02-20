@@ -13,7 +13,7 @@ def main():
 
 
 @app.route("/image_gpt",methods=["GET","POST"])
-def main():
+def image_gpt():
   return(render_template("image_gpt.html"))
 if __name__ =="__main__":
   app.run
