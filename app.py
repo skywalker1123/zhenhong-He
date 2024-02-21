@@ -1,6 +1,7 @@
 from flask import Flask,request,render_template
 import replicate
 import os
+import time
 
 app = Flask(__name__)
 os.environ["REPLICATE_API_TOKEN"]="r8_5GBrFCsT9jKI8UqsEdgH3d3s3sWXCuX42MrUS"
@@ -31,8 +32,9 @@ def image_result():
   r = replicate.run(
     "stability-ai/stable-diffusion:db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf",
      input={"prompt": q,})
-  
-  return(render_template("image_result.html",r=r))
+
+  time.sleep(10)
+  return(render_template("image_result.html",r=r[0]))
 
 @app.route("/end",methods=["GET","POST"])
 def end():
