@@ -1,6 +1,10 @@
 from flask import Flask,request,render_template
+import replicate
+import os
 
 app = Flask(__name__)
+os.environ["REPLICATE_API_TOKEN"]="r8_5GBrFCsT9jKI8UqsEdgH3d3s3sWXCuX42MrUS"
+
 
 r = ""
 first_time =1
@@ -20,6 +24,15 @@ def main():
 @app.route("/image_gpt",methods=["GET","POST"])
 def image_gpt():
   return(render_template("image_gpt.html"))
+
+@app.route("/image_result",methods=["GET","POST"])
+def image_result():
+  q = request.form.get("q")
+  r = replicate.run(
+    "stability-ai/stable-diffusion:db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf",
+     input={"prompt": q,})
+  
+  return(render_template("image_result.html",r=r))
 
 @app.route("/end",methods=["GET","POST"])
 def end():
