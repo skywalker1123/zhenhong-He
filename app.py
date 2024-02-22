@@ -1,5 +1,5 @@
 from flask import Flask,request,render_template
-from oenai import OpenAI
+from openai import OpenAI
 import replicate
 import os
 import time
