@@ -47,7 +47,7 @@ def text_gpt():
 
 
 @app.route("/about_NTU",methods=["GET","POST"])
-def text_gpt():
+def about_NTU():
   return(render_template("about_NTU.html"))
   
 @app.route("/text_result",methods=["GET","POST"])
