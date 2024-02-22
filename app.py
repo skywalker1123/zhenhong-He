@@ -4,7 +4,7 @@ import replicate
 import os
 import time
 
-openai_api_key = os.environ["OPENAI_API_TOKEN"]="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"
+openai_api_key = os.environ["OPENAI_API_TOKEN"]
 os.environ["REPLICATE_API_TOKEN"]="r8_5GBrFCsT9jKI8UqsEdgH3d3s3sWXCuX42MrUS"
 
 model =OpenAI(api_key=openai_api_key)
