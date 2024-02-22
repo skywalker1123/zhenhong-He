@@ -40,6 +40,8 @@ def image_result():
   time.sleep(10)
   return(render_template("image_result.html",r=r[0]))
 
+
+@app.route("/text_gpt",methods=["GET","POST"])
 def text_gpt():
   return(render_template("text_gpt.html"))
 
