@@ -45,6 +45,11 @@ def image_result():
 def text_gpt():
   return(render_template("text_gpt.html"))
 
+
+@app.route("/about_NTU",methods=["GET","POST"])
+def text_gpt():
+  return(render_template("about_NTU.html"))
+  
 @app.route("/text_result",methods=["GET","POST"])
 def text_result():
   q=input("question:")
