@@ -52,14 +52,14 @@ def about_NTU():
   
 @app.route("/text_result",methods=["GET","POST"])
 def text_result():
-  q = request.form.get("q")
-  r = model.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[{"role":"user","content":q}]
-  )
+    q = request.form.get("q")
+    r = model.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": q}]
+    )
 
-  time.sleep(5)
-  return(render_template("text_result.html",r=r.choices[0].message.content))
+    time.sleep(5)
+    return(render_template("text_result.html",r=r.choices[0].message.content))
 
 @app.route("/end",methods=["GET","POST"])
 def end():
