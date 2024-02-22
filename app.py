@@ -1,11 +1,13 @@
 from flask import Flask,request,render_template
+from oenai import OpenAI
 import replicate
 import os
+import OpenAI
 import time
 
 app = Flask(__name__)
 os.environ["REPLICATE_API_TOKEN"]="r8_5GBrFCsT9jKI8UqsEdgH3d3s3sWXCuX42MrUS"
-
+model =OpenAI(api_key="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")
 
 r = ""
 first_time =1
@@ -32,6 +34,19 @@ def image_result():
   r = replicate.run(
     "stability-ai/stable-diffusion:db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf",
      input={"prompt": q,})
+
+  time.sleep(10)
+  return(render_template("image_result.html",r=r[0]))
+
+def text_gpt():
+  return(render_template("text_gpt.html"))
+
+@app.route("/text_result",methods=["GET","POST"])
+def image_result():
+r = model.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role":"user","content":q}]
+)
 
   time.sleep(10)
   return(render_template("image_result.html",r=r[0]))
