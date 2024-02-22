@@ -52,7 +52,7 @@ def text_result():
   )
 
   time.sleep(5)
-  return(render_template("text_result.html",r=r.choices[0],message.content))
+  return(render_template("text_result.html",r=r.choices[0].message.content))
 
 @app.route("/end",methods=["GET","POST"])
 def end():
